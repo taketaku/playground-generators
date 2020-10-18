@@ -4,4 +4,4 @@ COPY . .
 WORKDIR /workspace/server
 
 # gem install rails
-# rails new server --api
+# rails new server --api --skip-bundle
