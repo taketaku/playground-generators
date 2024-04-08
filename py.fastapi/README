@@ -1,0 +1,7 @@
+1. > poetry init
+
+2.
+
+```.terminal
+poetry add gunicorn --group (production|dev)
+```
