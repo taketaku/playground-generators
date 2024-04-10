@@ -6,10 +6,10 @@ WORKDIR /app
 # versions: https://pypi.org/project/poetry/#history
 RUN pip install "poetry==1.8.2"
 
-# COPY pyproject.toml poetry.lock* /app/
+ENV PATH="/app/.venv/bin:$PATH"
 
-# virtualenvs.create false: Poetryはデフォルトでプロジェクトごとに仮想環境を作成しますが、この設定はDockerコンテナ内で仮想環境を作成することを無効にする。
-# RUN poetry config virtualenvs.create false \
-#     && poetry install
+COPY pyproject.toml poetry.lock* /app/
+RUN poetry config virtualenvs.in-project true \
+    && poetry install
 
 COPY ./ /app
